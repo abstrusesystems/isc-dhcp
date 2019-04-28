@@ -1,5 +1,5 @@
 FROM balenalib/raspberrypi3-debian:latest
-MAINTAINER github@abstruse.systems
+MAINTAINER github -at- abstruse -dot- systems
 
 ENV DATA_DIR=/data
 
