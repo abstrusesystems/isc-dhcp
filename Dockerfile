@@ -10,8 +10,8 @@ RUN rm -rf /etc/apt/apt.conf.d/docker-gzip-indexes \
 	&& DEBIAN_FRONTEND=noninteractive apt-get install -y isc-dhcp-server \
 	&& rm -rf /var/lib/apt/lists/*
 
-COPY entrypoint.sh /sbin/entrypoint.sh
-RUN chmod 755 /sbin/entrypoint.sh
+#COPY entrypoint.sh /sbin/entrypoint.sh
+#RUN chmod 755 /sbin/entrypoint.sh
 
 EXPOSE 67/udp 67/tcp
 
