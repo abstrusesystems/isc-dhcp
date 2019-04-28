@@ -1,7 +1,7 @@
 FROM balenalib/raspberrypi3-debian:latest
 MAINTAINER github@abstruse.systems
 
-ENV DATA_DIR=/data \
+ENV DATA_DIR=/data
 
 RUN echo exit 0 > /usr/sbin/policy-rc.d
 
