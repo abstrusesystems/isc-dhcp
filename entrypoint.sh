@@ -20,5 +20,4 @@ fi
 
 dhcpd -4 -cf $DATA_DIR/dhcpd.conf -lf $DATA_DIR/dhcpd.leases -pf $DATA_DIR/dhcpd.pid -p $DHCP_PORT $INT
 
-/bin/bash
 #tail -f /dev/null
