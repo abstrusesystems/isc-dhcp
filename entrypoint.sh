@@ -18,6 +18,11 @@ else
 	echo "IPv6 Disabled"
 fi
 
-dhcpd -4 -cf $DATA_DIR/dhcpd.conf -lf $DATA_DIR/dhcpd.leases -pf $DATA_DIR/dhcpd.pid -p $DHCP_PORT $INT
+if [ ! -z $IPv4 ]
+then
+	dhcpd -4 -cf $DATA_DIR/dhcpd.conf -lf $DATA_DIR/dhcpd.leases -pf $DATA_DIR/dhcpd.pid -p $DHCP_PORT $INT
+else
+	echo "IPv4 Disabled"
+fi
 
 tail -f /dev/null

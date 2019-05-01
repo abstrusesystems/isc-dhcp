@@ -1,17 +1,15 @@
-FROM balenalib/raspberrypi3-debian:latest
+FROM balenalib/raspberrypi3-alpine:latest
 MAINTAINER github -at- abstruse -dot- systems
 
 ENV DATA_DIR=/data \
+	IPv4=1 \
 	IPv6=1 \
 	INT=eth0 \
 	DHCP_PORT=67
 
-RUN echo exit 0 > /usr/sbin/policy-rc.d
-
-RUN rm -rf /etc/apt/apt.conf.d/docker-gzip-indexes \
-	&& apt-get update \
-	&& DEBIAN_FRONTEND=noninteractive apt-get install -y isc-dhcp-server \
-	&& rm -rf /var/lib/apt/lists/*
+RUN apk --update upgrade \
+	&& apk add --update dhcp \
+	&& rm -rf /var/cache/apk/*
 
 COPY entrypoint.sh /sbin/entrypoint.sh
 RUN chmod 755 /sbin/entrypoint.sh
