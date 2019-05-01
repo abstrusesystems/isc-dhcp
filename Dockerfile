@@ -7,8 +7,7 @@ ENV DATA_DIR=/data \
 	INT=eth0 \
 	DHCP_PORT=67
 
-RUN apk --update upgrade \
-	&& apk add --update dhcp \
+RUN apk add --update dhcp \
 	&& rm -rf /var/cache/apk/*
 
 COPY entrypoint.sh /sbin/entrypoint.sh
