@@ -2,6 +2,7 @@ FROM balenalib/raspberrypi3-alpine:latest
 MAINTAINER github -at- abstruse -dot- systems
 
 ENV DATA_DIR=/data \
+	IPv4=1 \
 	IPv6=1 \
 	INT=eth0 \
 	DHCP_PORT=67
