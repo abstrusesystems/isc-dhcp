@@ -3,10 +3,6 @@
 # stop on error
 set -e
 
-DATA_DIR="/data"
-IPv6=1
-INT=eth0
-
 #copy default config files if not exist in data directory
 [ ! -f $DATA_DIR/dhcpd.conf ] && cp -v /etc/dhcp/dhcpd.conf $DATA_DIR
 [ ! -f $DATA_DIR/dhcpd6.conf ] && cp -v /etc/dhcp/dhcpd6.conf $DATA_DIR
