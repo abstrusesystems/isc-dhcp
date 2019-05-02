@@ -5,7 +5,8 @@ ENV DATA_DIR=/data \
 	IPv4=1 \
 	IPv6=1 \
 	INT=eth0 \
-	DHCP_PORT=67
+	DHCP_PORTv4=67 \
+	DHCP_PORTv6=546
 
 RUN apk --update upgrade \
 	&& apk add --update dhcp \
