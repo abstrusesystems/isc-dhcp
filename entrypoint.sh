@@ -11,14 +11,15 @@ init_data() {
 	# if not directory /etc then create
 	if [[ ! -d ${DATA}/etc ]];
 	then
-		mv /etc/bind ${DATA}/etc
+		mv /etc/dhcp ${DATA}/etc
 	fi
 
 	# delete old location
-	rm -rf /etc/bind
+	rm -rf /etc/dhcp
 	
 	# link old location to new directory
-	ln -sf ${DATA}/etc /etc/bind
+	ln -sf ${DATA}/etc /etc/dhcp
+
 }
 
 init_data
