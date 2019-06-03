@@ -24,6 +24,8 @@ init_data() {
 	# if not directory /lib then create
 	if [[ ! -d ${DATA}/lib ]];
 	then
+		mkdir -p ${DATA}/lib/
+		
 		touch ${DATA}/lib/dhcpd.leases
 		touch ${DATA}/lib/dhcpd6.leases
 	fi
