@@ -40,7 +40,7 @@ init_data() {
 	
 	# link old location to new directory
 	ln -sf ${DATA}/var /var/lib/dhcp
-	ln -sf ${DATA}/var /var/db/
+	ln -sf ${DATA}/var /var/db
 
 	# ensure files exist
 	touch ${DATA}/var/dhcpd.leases
