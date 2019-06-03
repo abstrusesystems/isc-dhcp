@@ -24,8 +24,8 @@ init_data() {
 	# if not directory /lib then create
 	if [[ ! -d ${DATA}/lib ]];
 	then
-		${DATA}/lib/dhcpd.leases
-		${DATA}/lib/dhcpd6.leases
+		touch ${DATA}/lib/dhcpd.leases
+		touch ${DATA}/lib/dhcpd6.leases
 	fi
 	
 	# delete old location
