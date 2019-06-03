@@ -19,15 +19,20 @@ init_data() {
 	
 	# link old location to new directory
 	ln -sf ${DATA}/etc /etc/dhcp
+	
+	# ensure files exist
+	touch ${DATA}/etc/dhcpd.conf
+	touch ${DATA}/etc/dhcpd6.conf
+
+	# link default file location to new directory
+	ln -sf ${DATA}/etc/dhcpd.conf /etc/dhcpd.conf
+	ln -sf ${DATA}/etc/dhcpd6.conf /etc/dhcpd6.conf
 
 
 	# if not directory /lib then create
 	if [[ ! -d ${DATA}/lib ]];
 	then
 		mkdir -p ${DATA}/lib/
-		
-		touch ${DATA}/lib/dhcpd.leases
-		touch ${DATA}/lib/dhcpd6.leases
 	fi
 	
 	# delete old location
@@ -35,6 +40,10 @@ init_data() {
 	
 	# link old location to new directory
 	ln -sf ${DATA}/lib /var/lib/dhcp
+
+	# ensure files exist
+	touch ${DATA}/lib/dhcpd.leases
+	touch ${DATA}/lib/dhcpd6.leases
 }
 
 init_data
