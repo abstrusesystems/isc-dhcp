@@ -29,21 +29,22 @@ init_data() {
 	ln -sf ${DATA}/etc/dhcpd6.conf /etc/dhcpd6.conf
 
 
-	# if not directory /lib then create
-	if [[ ! -d ${DATA}/lib ]];
+	# if not directory /var then create
+	if [[ ! -d ${DATA}/var ]];
 	then
-		mkdir -p ${DATA}/lib/
+		mkdir -p ${DATA}/var/
 	fi
 	
 	# delete old location
 	rm -rf /var/lib/dhcp
 	
 	# link old location to new directory
-	ln -sf ${DATA}/lib /var/lib/dhcp
+	ln -sf ${DATA}/var /var/lib/dhcp
+	ln -sf ${DATA}/var /var/db/
 
 	# ensure files exist
-	touch ${DATA}/lib/dhcpd.leases
-	touch ${DATA}/lib/dhcpd6.leases
+	touch ${DATA}/var/dhcpd.leases
+	touch ${DATA}/var/dhcpd6.leases
 }
 
 init_data
