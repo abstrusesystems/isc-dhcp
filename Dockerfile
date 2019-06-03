@@ -13,8 +13,8 @@ RUN	apk add --update --no-cache dhcp
 COPY	entrypoint.sh /sbin/entrypoint.sh
 RUN	chmod 755 /sbin/entrypoint.sh
 
-EXPOSE	${DHCPv4_PORT}/udp ${DHCPv4_PORT}/tcp \
-	${DHCPv6_PORT}/udp ${DHCPv6_PORT}/tcp
+EXPOSE	${DHCPv4_PORT}/udp \
+	${DHCPv6_PORT}/udp
 
 VOLUME	["${DATA}"]
 
