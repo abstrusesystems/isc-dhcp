@@ -1,20 +1,23 @@
-FROM balenalib/raspberrypi3-alpine:latest
-MAINTAINER github -at- abstruse -dot- systems
+FROM	balenalib/raspberrypi3-alpine:latest
+LABEL	maintainer="github -at- abstruse -dot- systems"
 
-ENV DATA_DIR=/data \
+ENV 	DATA=/srv/dhcp \
 	IPv4=1 \
 	IPv6=1 \
 	INT=eth0 \
-	DHCP_PORTv4=67 \
-	DHCP_PORTv6=547
+	DHCPv4_PORT=67 \
+	DHCPv6_PORT=547
 
-RUN apk add --no-cache dhcp
+RUN	apk add --update --no-cache dhcp
 
-COPY entrypoint.sh /sbin/entrypoint.sh
-RUN chmod 755 /sbin/entrypoint.sh
+COPY	entrypoint.sh /sbin/entrypoint.sh
+RUN	chmod 755 /sbin/entrypoint.sh
 
-EXPOSE 67/udp 67/tcp
+EXPOSE	${DHCPv4_PORT}/udp ${DHCPv4_PORT}/tcp \
+	${DHCPv6_PORT}/udp ${DHCPv6_PORT}/tcp
 
-VOLUME ["${DATA_DIR}"]
+VOLUME	["${DATA}"]
 
-ENTRYPOINT ["/sbin/entrypoint.sh"]
+ENTRYPOINT	["/sbin/entrypoint.sh"]
+
+CMD	["/bin/sh"]
