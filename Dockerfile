@@ -1,4 +1,4 @@
-FROM	balenalib/raspberrypi3-alpine:latest
+FROM	alpine:latest
 LABEL	maintainer="github -at- abstruse -dot- systems"
 
 ENV 	DATA=/srv/dhcp \
