@@ -1,7 +1,7 @@
 FROM	alpine:latest
 LABEL	maintainer="github -at- abstruse -dot- systems"
 
-ENV 	DATA=~/dhcp \
+ENV 	DATA=/srv/dhcp \
 	IPv4=1 \
 	IPv6=1 \
 	INT=eth0 \
