@@ -45,8 +45,8 @@ init_data() {
 	ln -sf ${DATA}/var/run/dhcp /var/run/dhcp
 
 	# ensure files exist
-	touch ${DATA}/var/dhcp/dhcpd.leases
-	touch ${DATA}/var/dhcp/dhcpd6.leases
+	touch ${DATA}/var/lib/dhcp/dhcpd.leases
+	touch ${DATA}/var/lib/dhcp/dhcpd6.leases
 }
 
 init_data
