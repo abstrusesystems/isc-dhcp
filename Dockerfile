@@ -11,7 +11,7 @@ ENV 	DATA=/srv/dhcp \
 
 #RUN	apk add --update --no-cache dhcp
 RUN	apt-get update
-RUN	apt-get install -y isc-dhcp
+RUN	apt-get install -y dhcpd
 
 COPY	entrypoint.sh /sbin/entrypoint.sh
 RUN	chmod 755 /sbin/entrypoint.sh
