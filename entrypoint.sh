@@ -9,7 +9,7 @@ init_data() {
 	mkdir -p ${DATA}
 	
 	# if not directory /etc then create
-	if [[ ! -d ${DATA}/etc/dhcp ]];
+	if [ ! -d ${DATA}/etc/dhcp ];
 	then
 		mkdir -p ${DATA}/etc/dhcp/
 		cp /etc/dhcp/* ${DATA}/etc/dhcp/
@@ -26,12 +26,12 @@ init_data() {
 	touch ${DATA}/etc/dhcp/dhcpd6.conf
 
 	# if not directory /var then create
-	if [[ ! -d ${DATA}/var/lib/dhcp ]];
+	if [ ! -d ${DATA}/var/lib/dhcp ];
 	then
 		mkdir -p ${DATA}/var/lib/dhcp/
 	fi
 	
-	if [[ ! -d ${DATA}/var/run/dhcp ]];
+	if [ ! -d ${DATA}/var/run/dhcp ];
 	then
 		mkdir -p ${DATA}/var/run/dhcp/
 	fi
@@ -51,12 +51,12 @@ init_data() {
 init_data
 
 #check for dhcpd configuration in default location
-if [[ ! -f ${DATA}/etc/dhcp/dhcpd.conf ]];
+if [ ! -f ${DATA}/etc/dhcp/dhcpd.conf ];
 then
 	echo "Please place your dhcpd configuration in ${DATA}/etc/dhcp/dhcpd.conf"
 fi
 
-if [[ ! -f ${DATA}/etc/dhcp/dhcpd6.conf ]];
+if [ ! -f ${DATA}/etc/dhcp/dhcpd6.conf ];
 then
 	echo "Please place your dhcpd6 configuration in ${DATA}/etc/dhcp/dhcpd6.conf"
 fi
