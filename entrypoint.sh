@@ -12,7 +12,7 @@ init_data() {
 	if [[ ! -d ${DATA}/etc/dhcp ]];
 	then
 		mkdir -p ${DATA}/etc/dhcp/
-		mv /etc/dhcp ${DATA}/etc/dhcp
+		mv /etc/dhcp ${DATA}/etc
 	fi
 
 	# delete old location
