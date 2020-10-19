@@ -12,7 +12,6 @@ init_data() {
 	if [[ ! -d ${DATA}/etc/dhcp ]];
 	then
 		mkdir -p ${DATA}/etc/dhcp/
-		mv /etc/dhcp/* ${DATA}/etc/dhcp/
 	fi
 
 	# delete old location
@@ -26,8 +25,8 @@ init_data() {
 	touch ${DATA}/etc/dhcp/dhcpd6.conf
 
 	# link default file location to new directory
-	ln -sf ${DATA}/etc/dhcpd.conf /etc/dhcp/dhcpd.conf
-	ln -sf ${DATA}/etc/dhcpd6.conf /etc/dhcp/dhcpd6.conf
+	#ln -sf ${DATA}/etc/dhcpd.conf /etc/dhcp/dhcpd.conf
+	#ln -sf ${DATA}/etc/dhcpd6.conf /etc/dhcp/dhcpd6.conf
 
 
 	# if not directory /var then create
