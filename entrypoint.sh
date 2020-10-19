@@ -11,7 +11,8 @@ init_data() {
 	# if not directory /etc then create
 	if [[ ! -d ${DATA}/etc/dhcp ]];
 	then
-		mkdir -p ${DATA}/etc/dhcp
+		mkdir -p ${DATA}/etc/dhcp/
+		mv /etc/dhcp ${DATA}/etc/dhcp
 	fi
 
 	# delete old location
