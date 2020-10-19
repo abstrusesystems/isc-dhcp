@@ -10,8 +10,8 @@ ENV 	DATA=/srv/dhcp \
 	DHCPv6_PORT=547
 
 #RUN	apk add --update --no-cache dhcp
-RUN	apt update
-RUN	apt install dhcp
+RUN	apt-get update
+RUN	apt-get install -y isc-dhcp
 
 COPY	entrypoint.sh /sbin/entrypoint.sh
 RUN	chmod 755 /sbin/entrypoint.sh
