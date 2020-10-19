@@ -1,4 +1,4 @@
-FROM	alpine:latest
+FROM	debian:buster-slim
 LABEL	maintainer="github -at- abstruse -dot- systems"
 
 ENV 	DATA=/srv/dhcp \
