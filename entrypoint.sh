@@ -31,21 +31,21 @@ init_data() {
 
 
 #	# if not directory /var then create
-#	if [[ ! -d ${DATA}/var ]];
-#	then
-#		mkdir -p ${DATA}/var/
-#	fi
+	if [[ ! -d ${DATA}/var/lib/dhcp ]];
+	then
+		mkdir -p ${DATA}/var/lib/dhcp
+	fi
 	
 	# delete old location
-#	rm -rf /var/lib/dhcp
+	rm -rf /var/lib/dhcp
 	
 	# link old location to new directory
-#	ln -sf ${DATA}/var /var/lib/dhcp
+	ln -sf ${DATA}/var/lib/dhcp /var/lib/dhcp
 #	ln -sf ${DATA}/var /var/db
 
 	# ensure files exist
-#	touch ${DATA}/var/dhcpd.leases
-#	touch ${DATA}/var/dhcpd6.leases
+	touch ${DATA}/var/lib/dhcp/dhcpd.leases
+	touch ${DATA}/var/lib/dhcp/dhcpd6.leases
 }
 
 init_data
