@@ -6,13 +6,13 @@ set -e
 # initialize data directory
 init_data() {
 	# create root directory
-	mkdir -p ${DATA}
+	mkdir -p ${DATA}/etc/
+	mkdir -p ${DATA}/var/
 	
 	# if not directory /etc then create
-	if [ ! -d ${DATA}/etc/dhcp ];
+	if [[ ! -d ${DATA}/etc/dhcp ]];
 	then
-		mkdir -p ${DATA}/etc/dhcp/
-		cp /etc/dhcp/* ${DATA}/etc/dhcp/
+		mv /etc/dhcp ${DATA}/etc/dhcp
 	fi
 
 	# delete old location
@@ -25,40 +25,40 @@ init_data() {
 	touch ${DATA}/etc/dhcp/dhcpd.conf
 	touch ${DATA}/etc/dhcp/dhcpd6.conf
 
-	# if not directory /var then create
-	if [ ! -d ${DATA}/var/lib/dhcp ];
-	then
-		mkdir -p ${DATA}/var/lib/dhcp/
-	fi
-	
-	if [ ! -d ${DATA}/var/run/dhcp ];
-	then
-		mkdir -p ${DATA}/var/run/dhcp/
-	fi
+	# link default file location to new directory
+	ln -sf ${DATA}/etc/dhcp/dhcpd.conf /etc/dhcp/dhcpd.conf
+	ln -sf ${DATA}/etc/dhcp/dhcpd6.conf /etc/dhcp/dhcpd6.conf
+
+
+#	# if not directory /var then create
+#	if [[ ! -d ${DATA}/var ]];
+#	then
+#		mkdir -p ${DATA}/var/
+#	fi
 	
 	# delete old location
-	rm -rf /var/lib/dhcp
+#	rm -rf /var/lib/dhcp
 	
 	# link old location to new directory
-	ln -sf ${DATA}/var/lib/dhcp /var/lib/dhcp
-	ln -sf ${DATA}/var/run/dhcp /var/run/dhcp
+#	ln -sf ${DATA}/var /var/lib/dhcp
+#	ln -sf ${DATA}/var /var/db
 
 	# ensure files exist
-	touch ${DATA}/var/lib/dhcp/dhcpd.leases
-	touch ${DATA}/var/lib/dhcp/dhcpd6.leases
+#	touch ${DATA}/var/dhcpd.leases
+#	touch ${DATA}/var/dhcpd6.leases
 }
 
 init_data
 
 #check for dhcpd configuration in default location
-if [ ! -f ${DATA}/etc/dhcp/dhcpd.conf ];
+if [[ ! -f ${DATA}/etc/dhcpd.conf ]];
 then
-	echo "Please place your dhcpd configuration in ${DATA}/etc/dhcp/dhcpd.conf"
+	echo "Please place your dhcpd configuration in ${DATA}/etc/dhcpd.conf"
 fi
 
-if [ ! -f ${DATA}/etc/dhcp/dhcpd6.conf ];
+if [[ ! -f ${DATA}/etc/dhcpd6.conf ]];
 then
-	echo "Please place your dhcpd6 configuration in ${DATA}/etc/dhcp/dhcpd6.conf"
+	echo "Please place your dhcpd6 configuration in ${DATA}/etc/dhcpd6.conf"
 fi
 
 # run CMD
