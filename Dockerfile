@@ -1,5 +1,4 @@
-#FROM	alpine:latest
-FROM	debian:buster-slim
+FROM	alpine:latest
 LABEL	maintainer="github -at- abstruse -dot- systems"
 
 ENV 	DATA=/srv/dhcp \
@@ -9,15 +8,13 @@ ENV 	DATA=/srv/dhcp \
 	DHCPv4_PORT=67 \
 	DHCPv6_PORT=547
 
-#RUN	apk add --update --no-cache dhcp
-RUN	apt-get update
-RUN	apt-get install -y isc-dhcp-server
+RUN	apk add --update --no-cache dhcp
 
 COPY	entrypoint.sh /sbin/entrypoint.sh
 RUN	chmod 755 /sbin/entrypoint.sh
 
-#EXPOSE	${DHCPv4_PORT}/udp \
-#	${DHCPv6_PORT}/udp
+EXPOSE	${DHCPv4_PORT}/udp \
+	${DHCPv6_PORT}/udp
 
 VOLUME	["${DATA}"]
 
