@@ -26,8 +26,8 @@ init_data() {
 	touch ${DATA}/etc/dhcp/dhcpd6.conf
 
 	# link default file location to new directory
-	ln -sf ${DATA}/etc/dhcp/dhcpd.conf /etc/dhcp/dhcpd.conf
-	ln -sf ${DATA}/etc/dhcp/dhcpd6.conf /etc/dhcp/dhcpd6.conf
+#	ln -sf ${DATA}/etc/dhcp/dhcpd.conf /etc/dhcp/dhcpd.conf
+#	ln -sf ${DATA}/etc/dhcp/dhcpd6.conf /etc/dhcp/dhcpd6.conf
 
 
 #	# if not directory /var then create
